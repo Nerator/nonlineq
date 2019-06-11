@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.base', 'javafx.controls', 'javafx.fxml' ]
+}
+
+wrapper {
+    gradleVersion = '5.4.1'
+}
+
+compileJava {
+    options.warnings = true
+    options.deprecation = true
+    options.compilerArgs += ["-Xlint:deprecation"]
+}
+
+mainClassName = "ru.nerator.nonlineq.MainApp"
+
+// In this section you declare where to find the dependencies of your project
+repositories {
+    // Use 'jcenter' for resolving your dependencies.
+    // You can declare any Maven/Ivy/file repository here.
+    jcenter()
+}
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    // The production code uses the SLF4J logging API at compile time
+    implementation 'org.slf4j:slf4j-api:1.7.21'
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+}
+
+javadoc {
+    options.charSet = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': "ru.nerator.nonlineq.MainApp"
+    }
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events 'failed'
+        exceptionFormat = 'full'
+    }
+}
