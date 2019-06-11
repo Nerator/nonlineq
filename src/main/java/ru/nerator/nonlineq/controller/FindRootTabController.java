@@ -7,7 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import ru.nerator.nonlineq.MainApp;
-import ru.nerator.nonlineq.model.MyTuple;
+import ru.nerator.nonlineq.model.MethodResult;
 import ru.nerator.nonlineq.model.NumericMethods;
 import ru.nerator.nonlineq.util.Formatter;
 
@@ -32,7 +32,7 @@ public class FindRootTabController {
             int n = Integer.parseInt(rootController.getN());
             double e = Double.parseDouble(rootController.getE());
 
-            MyTuple root = null;
+            MethodResult root = null;
             switch (((Node) ae.getSource()).getId()) {
                 case "btnBisec":
                     root = NumericMethods.rootBisec(a, b, n, e);

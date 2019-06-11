@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 class NumericMethodsTest {
 
 	private static final double EPSILON = 1E-6;
-	private static MyTuple resBisec, resSecant, resNewton, resIter;
+	private static MethodResult resBisec, resSecant, resNewton, resIter;
 
 	@BeforeAll
 	static void setUpBeforeClass() {

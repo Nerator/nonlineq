@@ -6,20 +6,20 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class MyTupleTest {
+class MethodResultTest {
 
-	private static MyTuple t1,t2,t3;
+	private static MethodResult t1,t2,t3;
 		
 	@BeforeAll
 	static void setUpBeforeClass() {
-		t1 = new MyTuple();
-		t2 = new MyTuple(1.0, 2);
-		t3 = new MyTuple(3.0, 4, 5);
+		t1 = new MethodResult();
+		t2 = new MethodResult(1.0, 2);
+		t3 = new MethodResult(3.0, 4, 5);
 	}
 
 	
 	/**
-	 * Test method for {@link ru.nerator.nonlineq.model.MyTuple#haveStart()}.
+	 * Test method for {@link MethodResult#haveStart()}.
 	 */
 	@Test
 	final void testHaveStart() {
@@ -29,7 +29,7 @@ class MyTupleTest {
 	}
 
 	/**
-	 * Test method for {@link ru.nerator.nonlineq.model.MyTuple#isEmpty()}.
+	 * Test method for {@link MethodResult#isEmpty()}.
 	 */
 	@Test
 	final void testIsEmpty() {

@@ -1,6 +1,6 @@
 package ru.nerator.nonlineq.util;
 
-import ru.nerator.nonlineq.model.MyTuple;
+import ru.nerator.nonlineq.model.MethodResult;
 
 /**
  * Вспомогательный класс для форматирования количества шагов
@@ -40,10 +40,10 @@ public class Formatter {
     /**
      * Метод для форматирования результа в строку.
      *
-     * @param res объект MyTuple, представляющий результат.
+     * @param res объект MethodResult, представляющий результат.
      * @return форматированная строка результата.
      */
-    public static String formatTuple(MyTuple res) {
+    public static String formatTuple(MethodResult res) {
         if (res.isEmpty()) {
             return "Невозможно определить корень.";
         } else if (res.haveStart()) {

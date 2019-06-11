@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import ru.nerator.nonlineq.model.MyTuple;
+import ru.nerator.nonlineq.model.MethodResult;
 
 /**
  * @author nerator
@@ -30,13 +30,13 @@ class FormatterTest {
 	}
 
 	/**
-	 * Test method for {@link ru.nerator.nonlineq.util.Formatter#formatTuple(ru.nerator.nonlineq.model.MyTuple)}.
+	 * Test method for {@link ru.nerator.nonlineq.util.Formatter#formatTuple(MethodResult)}.
 	 */
 	@Test
 	final void testFormatTuple() {
-		MyTuple t1 = new MyTuple();
-		MyTuple t2 = new MyTuple(1.0,2);
-		MyTuple t3 = new MyTuple(3.0,4,5);
+		MethodResult t1 = new MethodResult();
+		MethodResult t2 = new MethodResult(1.0,2);
+		MethodResult t3 = new MethodResult(3.0,4,5);
 		
 		assertEquals("Невозможно определить корень.", 
 				Formatter.formatTuple(t1));

@@ -77,7 +77,7 @@ public class NumericMethods {
      * @param e точность
      * @return кортеж, содержащий корень и количество шагов, за которое получен корень.
      */
-    public static MyTuple rootBisec(double a, double b, int n, double e) {
+    public static MethodResult rootBisec(double a, double b, int n, double e) {
         int k = 0;
 
         while (Math.abs(a - b) > e) {
@@ -89,7 +89,7 @@ public class NumericMethods {
                 a = c;
             }
         }
-        return new MyTuple(a, k);
+        return new MethodResult(a, k);
     }
 
     /**
@@ -101,7 +101,7 @@ public class NumericMethods {
      * @param e точность
      * @return кортеж, содержащий корень и количество шагов, за которое он получен.
      */
-    public static MyTuple rootSecant(double a, double b, int n, double e) {
+    public static MethodResult rootSecant(double a, double b, int n, double e) {
         int k = 0;
         double oldC, newC = 0;
         do {
@@ -114,7 +114,7 @@ public class NumericMethods {
             }
             k++;
         } while (Math.abs(oldC - newC) > e);
-        return new MyTuple(newC, k - 1);
+        return new MethodResult(newC, k - 1);
     }
 
     /**
@@ -127,7 +127,7 @@ public class NumericMethods {
      * @return кортеж, содержащий корень, количество шагов, за которое он получен
      * и начальную точку работы метода.
      */
-    public static MyTuple rootNewton(double a, double b, int n, double e) {
+    public static MethodResult rootNewton(double a, double b, int n, double e) {
         // выберем начальную точку
         double x;
         if (func(a, n) * der2Func(a) > 0) {
@@ -135,7 +135,7 @@ public class NumericMethods {
         } else if (func(b, n) * der2Func(b) > 0) {
             x = b;
         } else {
-            return new MyTuple(); // невозможно определить корень
+            return new MethodResult(); // невозможно определить корень
         }
         int start = (int) x;
 
@@ -144,7 +144,7 @@ public class NumericMethods {
             k++;
             x = x - func(x, n) / derFunc(x, n);
         }
-        return new MyTuple(x, k, start);
+        return new MethodResult(x, k, start);
     }
 
     /**
@@ -157,7 +157,7 @@ public class NumericMethods {
      * @return кортеж, содержащий корень, количество шагов, за которое он получен
      * и начальную точку работы метода.
      */
-    public static MyTuple rootIter(double a, double b, int n, double e) {
+    public static MethodResult rootIter(double a, double b, int n, double e) {
         // выберем начальную точку
         double x;
         if (Math.abs(derPhi(a, n)) < 1) {
@@ -170,7 +170,7 @@ public class NumericMethods {
             if (Math.abs(derPhi(b, n)) < 1) {
                 x = b;
             } else {
-                return new MyTuple(); // невозможно определить корень
+                return new MethodResult(); // невозможно определить корень
             }
         }
         int start = (int) x;
@@ -180,7 +180,7 @@ public class NumericMethods {
             k++;
             x = phi(x, n);
         }
-        return new MyTuple(x, k, start);
+        return new MethodResult(x, k, start);
     }
 
 }

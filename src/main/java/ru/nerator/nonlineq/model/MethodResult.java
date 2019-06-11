@@ -6,9 +6,8 @@ package ru.nerator.nonlineq.model;
  *
  * @author nerator
  */
-public class MyTuple {
-
-
+public class MethodResult {
+    
     private Double root;
     private Integer steps;
     private Integer start;
@@ -19,7 +18,7 @@ public class MyTuple {
      * @param r найденный корень.
      * @param s количество шагов.
      */
-    public MyTuple(double r, int s) {
+    public MethodResult(double r, int s) {
         this.root = r;
         this.steps = s;
         this.start = null;
@@ -32,7 +31,7 @@ public class MyTuple {
      * @param stp количество шагов.
      * @param str приближение корня, откуда метод начал работу.
      */
-    public MyTuple(double r, int stp, int str) {
+    public MethodResult(double r, int stp, int str) {
         this.root = r;
         this.steps = stp;
         this.start = str;
@@ -42,7 +41,7 @@ public class MyTuple {
      * Конструктор без параметров, используется в случае,
      * если решение найти не удается.
      */
-    public MyTuple() {
+    public MethodResult() {
         this.root = null;
         this.steps = null;
         this.start = null;
